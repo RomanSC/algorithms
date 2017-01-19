@@ -37,6 +37,8 @@ Since naming my function "sum" is a bad idea:
 http://www.dictionary.com/browse/tot?s=t
 
 """
+import math, doctest
+
 class Greek:
     def __init__(self, title=''):
         self.title = title
@@ -71,6 +73,5 @@ def main():
     """
 
 if __name__ == '__main__':
-    import doctest
     doctest.testmod()
     main()
