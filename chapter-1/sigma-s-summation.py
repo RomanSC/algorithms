@@ -46,12 +46,17 @@ class Greek:
     def __str__(self):
         return self.title
 
-    def tot(self, upper_limit, lower_limit):
-        for lower_limit in range(upper_limit + 1):
-            if lower_limit <= upper_limit:
-                lower_limit =+ lower_limit
-                #total = lower_limit
-        return lower_limit
+    # Simple sum function that works with floats
+    def tot(self, upper_bound, lower_bound):
+        for lower_bound in range(upper_bound + 1):
+            if lower_bound <= upper_bound:
+                lower_bound =+lower_bound
+                #total =lower_bound
+        return lower_bound
+
+    def tot_w_func(self, upper_bound, lower_bound, function):
+        for lower_bound in range(upper_bound + 1):
+            pass
 
 def main():
     """ Doctest:
