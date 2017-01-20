@@ -72,58 +72,125 @@ class Fraction:
 
         return fract_two
 
+    """ Need Fraction() to be able to be interpreted as
+        a float or integer if true...
 
-class Sum:
-    """ Summation - Doctest:
-        >>> print(Sum(400, 1))
-        400
+        Python Documentation:
+        https://docs.python.org/3/library/stdtypes.html
+
+        Assumed my methods would be __int__, __float__
+        which should return int() and float() objects
+        respectively. But checked like this:
+
+        >>> dir(float())
+        ['__abs__', '__add__', '__bool__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__',
+        '__float__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getformat__', '__getnewargs__', '__gt__',
+        '__hash__', '__init__', '__init_subclass__', '__int__', '__le__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__',
+        '__new__', '__pos__', '__pow__', '__radd__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__',
+        '__rmod__', '__rmul__', '__round__', '__rpow__', '__rsub__', '__rtruediv__', '__setattr__', '__setformat__',
+        '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', 'as_integer_ratio', 'conjugate',
+        'fromhex', 'hex', 'imag', 'is_integer', 'real']
+
+        >>> dir(int())
+        ['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__',
+        '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__',
+        '__getnewargs__', '__gt__', '__hash__', '__index__', '__init__', '__init_subclass__', '__int__', '__invert__',
+        '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__',
+        '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__',
+        '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__',
+        '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__',
+        '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag',
+        'numerator', 'real', 'to_bytes']
+
+        int() has no is_integer() method like this:
+        >>> float(7.0).is_integer()
+        True
+
+        Stack Overflow - Checking whether a variable is an integer or not
+        https://stackoverflow.com/questions/3501382/checking-whether-a-variable-is-an-integer-or-not#3501408
+        >>> isinstance(7, int)
+        True
+
+        >>> isinstance(7.2, int)
+        False
+
+        >>> isinstance(7.2, float)
+        True
+
+        Must also understand the properties of integers or
+        to understand when to return them or no...
+
     """
+    def __int__(self):
+        #if (self.numerator % self.denominator) == 0:
+        #    return int(self.numerator / self.denominator)
+        if isinstance((self.numerator / self.denominator), int):
+            return int(self.numerator / self.denominator)
 
-    def __init__(self, upper_bound, lower_bound):
-        for self.lower_bound in range(upper_bound + 1):
-            if self.lower_bound <= upper_bound:
-                self.lower_bound =+ self.lower_bound
 
-    def __str__(self):
-        #TODO: Make string method more interesting
-        return str(self.lower_bound)
+    def __float__(self):
+        #if (self.numerator % self.denominator) != 0:
+        #    print(self.numerator / self.denominator)
+            #return self.numerator / self.denominator
+        if isinstance((self.numerator / self.denominator), float):
+            return float(self.numerator / self.denominator)
 
-#    def __int__(self):
-#        #print(self.lower_bound)
-#        return self.lower_bound
+
+#class Sum:
+#    """ Summation - Doctest:
+#        >>> print(Sum(400, 1))
+#        400
+#    """
+#
+#    def __init__(self, upper_bound, lower_bound):
+#        for self.lower_bound in range(upper_bound + 1):
+#            if self.lower_bound <= upper_bound:
+#                self.lower_bound =+ self.lower_bound
+#
+#    def __str__(self):
+#        #TODO: Make string method more interesting
+#        return str(self.lower_bound)
+#
+#class Sigma:
+#    def __init__(self, upper_bound, lower_bound):
+#        iterations = []
+#        for lower_bound in range(upper_bound + 1):
+#            if lower_bound >= 1:
+#                n = (lower_bound ** 2)
+#                #iteration = Fraction(1, n)
+#                iteration = (1 / n)
+#            try:
+#                iterations.append(lower_bound)
+#            except:
+#                if lower_bound == 0:
+#                    iterations.append(lower_bound)
+#                else:
+#                    pass
+#
+#        print(Sum(iterations))
+
 
 def main():
+    """
     fract1 = Fraction(1, 4)
     fract2 = Fraction(1, 2)
     fract3 = Fraction(1, 2)
     fract4 = Fraction(1, 2)
 
 
-    print('Fraction: {}'.format(fract1), '+', fract2)
-    print(fract1 + fract2, '\n')
+    #print('Fraction: {}'.format(fract1), '+', fract2)
+    #print(fract1 + fract2, '\n')
 
-    print('{} is equal to {}?: '.format(fract3, fract4))
-    print(fract3 == fract4, '\n')
-
-    #print(Sum('Sigma', 100, Fraction(1, (1 / 1 ** 2))))
-
-    #print(Sum('Sigma', 100, Fraction(1, (1 / n ** 2) for n in range(100))))
-
-    #for i in range(ub):
-    #    #print(i)
-    #    i = i ** 2
-    #    n = Fraction(lb, i)
-    #    total = Sum('Sigma', ub, n)
-    #    #total = Sum('Sigma', ub, Fraction(lb, (1 / i ** 2)))
-    #    #print(total)
+    #print('{} is equal to {}?: '.format(fract3, fract4))
+    #print(fract3 == fract4, '\n')
 
     iterations = []
 
+    # This can be done without creating a class
     for i in range(100 + 1):
         if i >= 1:
             n = (i ** 2)
             iteration = (1 / n)
-            #iteration = Fraction(1, n)
 
         try:
             #print(iteration)
@@ -138,12 +205,25 @@ def main():
             # can proceed
             pass
 
-    #print(len(iterations))
     print(sum(iterations))
 
-    #Sum('Sigma', 100, function)
+    #print(float(Fraction(1, 3)))
 
-    #print(total)
+    for i in range(1, 21):
+        if isinstance(float(Fraction(1, i)), float):
+            print(float(Fraction(1, i)))
+
+    """
+
+    ub = (100 + 1)
+    lb = 1
+    iterations = []
+
+    for i in range(lb, ub):
+        iteration = float(Fraction(lb, (i ** 2)))
+        iterations.append(iteration)
+
+    print(sum(iterations))
 
 if __name__ == '__main__':
     doctest.testmod()
