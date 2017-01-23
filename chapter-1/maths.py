@@ -222,7 +222,7 @@ def main():
     for i in range(lb, ub):
         iteration = float(Fraction(lb, (i ** 2)))
         iterations.append(iteration)
-
+        print(iteration)
     print(sum(iterations))
 
 if __name__ == '__main__':

@@ -41,8 +41,8 @@ def main():
         return num_same / len(goal)
 
 
-    match_sentence = 'methinks it is like a weasel'
-    new_string = generateOne(28)
+    match_sentence = 'weasel'
+    new_string = generateOne(len(match_sentence))
     best_score = 0
     new_score = keepScore(match_sentence, new_string)
 
@@ -56,10 +56,10 @@ def main():
         else:
             color = 'green'
 
-        new_string = generateOne(28)
+        new_string = generateOne(len(match_sentence))
 
         if new_score > best_score:
-            print(termcolor.colored('{} {}'.format(str(new_score)[0:5], new_string), color))
+            print(termcolor.colored('{} {}'.format(str(new_score) [0:5], new_string), color))
             best_score = new_score
 
         #print(new_string)
