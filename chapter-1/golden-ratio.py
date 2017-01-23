@@ -15,6 +15,9 @@ class Gold:
     #    pass
 
     def grid(self, n, n_colors, n_list, y_axis, x_axis):
+        # Hard coded fibonacci grid i.e. how
+        # I want fibonacci of 6 to appear without
+        # fully understanding how to accomplish that yet
         if n == 6:
             Fg.fg()
             print('')
@@ -23,6 +26,8 @@ class Gold:
             n_colors = self.n_colors(x_axis)
             for y in range(y_axis):
                 for x in range(x_axis):
+                    # I understand that this loop functions like
+                    # print(dot), loop, print(dot), loop ...
                     color = n_colors[x]
                     print(termcolor.colored('·', color), end='  ')
                 print('')
@@ -101,6 +106,7 @@ def main():
     # Is 8, fibby(6) returns
     # 8
     n = 6
+    n = int(input('n equal to?: '))
 
     fn, n_list = Gold().fibby(n)
     n_colors = Gold().n_colors(fn)
