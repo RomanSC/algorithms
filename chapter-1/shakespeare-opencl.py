@@ -11,7 +11,7 @@
     inputted string.
 
 """
-import random, termcolor, pyopencl, numpy, doctest
+import random, termcolor, numpy, doctest
 
 #TODO:
 # Everything in opencl

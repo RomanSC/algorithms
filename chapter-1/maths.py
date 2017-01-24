@@ -5,7 +5,7 @@
     Demonstrating creating a "Fraction" class in Python
 
 """
-import doctest
+import doctest, math
 
 class Fraction:
     """ The Fractions class as
@@ -222,8 +222,15 @@ def main():
     for i in range(lb, ub):
         iteration = float(Fraction(lb, (i ** 2)))
         iterations.append(iteration)
-        print(iteration)
+        #print(iteration)
     print(sum(iterations))
+    #print(iterations)
+
+    print(math.sqrt(sum(iterations) * 6))
+
+#    sum = Fraction(1, 1)
+#    for n in range(2, 101):
+#        sum += Fractin(1, n ** 2)
 
 if __name__ == '__main__':
     doctest.testmod()
