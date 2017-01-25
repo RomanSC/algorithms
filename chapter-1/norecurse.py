@@ -30,6 +30,7 @@
 import time, math, sys
 import matplotlib.pyplot as pyplot
 sys.setrecursionlimit(18000)
+a, b = 0, 1
 
 class Fibby():
     #TODO
@@ -105,20 +106,14 @@ class Fibby():
 
     # Source: 5 Ways of Fibonacci in Python
     # Example 3: Using generators
-#    def fib5(self):
-#        a, b = 0, 1
-#        global a, b
-#
-#        while True:
-#            a, b = b, a + b
-#
-#            yield a
-#
-#        f = fibI()
-#        f.next()
-#        f.next()
-#        f.next()
-#        f.next()
+    # Adapted for Python
+    def fib5(self):
+        global a, b
+
+        while True:
+            a, b = b, a + b
+
+            yield a
 
 # Hmmm... Memoization.
 
@@ -183,11 +178,14 @@ def main():
     fib4_results = []
     fib4_times = []
 
+    # fib5
+    fib5_results = []
+    fib5_times = []
 
     fib_of = 6
     for n in range(fib_of):
         # Make many veriables to ensure no false positive
-        fib1_n, fib2_n, fib3_n, fib4_n = n, n, n, n
+        fib1_n, fib2_n, fib3_n, fib4_n, fib5_n = n, n, n, n, n
 
         # fib1
         start_time = time.time()
@@ -238,6 +236,18 @@ def main():
 
         #pyplot.plot(fib4_results, fib4_times)
 
+        # fib5
+        start_time = time.time()
+
+        for i in range(fib5_n):
+            next(fibby.fib5())
+
+        end_time = time.time()
+
+        fib5_results.append(fib5_n)
+        fib5_times.append(end_time - start_time)
+
+        pyplot.plot(fib5_results, fib5_times)
 
     pyplot.xlabel('n')
     pyplot.ylabel('time')
