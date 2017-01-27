@@ -27,7 +27,7 @@
         http://sahandsaba.com/five-ways-to-calculate-fibonacci-numbers-with-python-code.html
 
 """
-import time, math, sys
+import time, sys
 import matplotlib.pyplot as pyplot
 
 sys.setrecursionlimit(18000)
@@ -107,6 +107,7 @@ class Fibby():
             return n
 
         return self.fib4(n - 1) + self.fib4(n - 2)
+
 
     # Source: 5 Ways of Fibonacci in Python
     # Example 3: Using generators

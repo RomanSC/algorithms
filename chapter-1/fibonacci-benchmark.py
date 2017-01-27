@@ -1,4 +1,4 @@
-""" fibonacci-benchmark.py
+""" fibonacci-benchmark.py | Fri, Jan 27, 2017 | Roman S. Collins
 
     Comparing calculation times of different fibonacci functions.
 
