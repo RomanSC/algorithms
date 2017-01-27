@@ -29,7 +29,9 @@
 """
 import time, math, sys
 import matplotlib.pyplot as pyplot
+
 sys.setrecursionlimit(18000)
+
 a, b = 0, 1
 
 class Fibby():
@@ -49,12 +51,14 @@ class Fibby():
 
             return n
         # Tail recursion
-        # If n has already been calculated don't do it
+        # If n has already been calculated don't calculate it
         # over again
         if n in prev:
 
             return prev[n]
 
+        # prev[n] is the last and second to last n
+        # added together
         prev[n] = self.fib1(n-1) + self.fib1(n-2)
 
         return prev[n]
@@ -107,6 +111,7 @@ class Fibby():
     # Source: 5 Ways of Fibonacci in Python
     # Example 3: Using generators
     # Adapted for Python
+    # https://stackoverflow.com/questions/12274606/theres-no-next-function-in-a-yield-generator-in-python-3
     def fib5(self):
         global a, b
 
@@ -182,10 +187,10 @@ def main():
     fib5_results = []
     fib5_times = []
 
-    fib_of = 6
+    fib_of = 30
     for n in range(fib_of):
         # Make many veriables to ensure no false positive
-        fib1_n, fib2_n, fib3_n, fib4_n, fib5_n = n, n, n, n, n
+        fib1_n, fib2_n, fib3_n, fib4_n = n, n, n, n
 
         # fib1
         start_time = time.time()
@@ -239,8 +244,11 @@ def main():
         # fib5
         start_time = time.time()
 
+        fib5_n = 30
         for i in range(fib5_n):
-            next(fibby.fib5())
+            print(i, next(fibby.fib5()))
+            #print(next(fibby.fib5()))
+            #print(next(fibby.fib5()))
 
         end_time = time.time()
 
