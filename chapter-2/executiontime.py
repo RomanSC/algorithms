@@ -38,9 +38,15 @@ def execution_time(some_function, iter_count):
     return result, exec_time
 
 def main():
-    """ Doctest:
-    >>> print('Hello world!')
-    Hello world!
+    """ Hard to doctest ever changing variables so maybe this is the best
+        we can do?
+        Doctest:
+        >>> sus = [1, 3, 34, 53, 645, 234, 6234, 111, 1123, 100, 12, 12, 23]
+        >>> result, exec_time = execution_time(sum(sus), 2000000)
+        >>> isinstance(result, int)
+        True
+        >>> isinstance(exec_time, float)
+        True
     """
 
     sus = [1, 3, 34, 53, 645, 234, 6234, 111, 1123, 100, 12, 12, 23]
