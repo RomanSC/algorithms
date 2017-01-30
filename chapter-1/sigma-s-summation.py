@@ -68,8 +68,6 @@ def main():
     G = Greek()
     total = G.tot(100, n)
 
-    #print(total)
-
     print((1 / (n ** 2) * total))
 
     """ tot - Doctest:

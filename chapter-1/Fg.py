@@ -1,3 +1,5 @@
+# This is hard-coded smelly code for demonstration purposes with golden-ration.py
+# don't be like me, don't do this ;)
 import termcolor
 
 def fg():
