@@ -106,6 +106,7 @@ def main():
     #5
     """
 
+    """
     n = 5
     waysoffib = WAYSOFFIB()
     memsoffib = Memoize(n)
@@ -114,9 +115,9 @@ def main():
     print(waysoffib.not_catalogued(n))
     print(waysoffib.looping(n))
     print(waysoffib.gen(n))
-
     """
 
+    """
     #TODO: MEMOIZE
     @Memoize
     def fib(n):

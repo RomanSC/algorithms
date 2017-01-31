@@ -24,6 +24,7 @@ ultimately not that different though
 
 from doctest import testmod
 from time import time
+from waysoffib import *
 
 def execution_time(some_function, iter_count):
     start_time = time()
@@ -49,12 +50,21 @@ def main():
         True
     """
 
+    """
     sus = [1, 3, 34, 53, 645, 234, 6234, 111, 1123, 100, 12, 12, 23]
 
     result, exec_time = execution_time(sum(sus), 2000000)
 
     print('TEST: print \"result\", \"exec_time\":', result, exec_time)
+    """
+
+    i = 6
+
+    wof = WAYSOFFIB
+
+    wof.catalogued(i)
 
 if __name__=='__main__':
     testmod()
     main()
+
