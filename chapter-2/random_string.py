@@ -6,11 +6,10 @@
 import random
 
 class randStr:
-    def rand_string(self, abc, n):
-        if abc == None:
-            abc = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-                        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
-                        'w', 'x', 'y', 'z', ' ']
+    def rand_string(self, n):
+        abc = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+                    'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+                    'w', 'x', 'y', 'z', ' ']
         abc_copy = list(abc[x] for x in range(len(abc)))
         return ''.join(random.sample(abc_copy, n))
 
@@ -25,8 +24,8 @@ def main():
         True
     """
     # Fill main with something other than pass
-    while isinstance(randStr().rand_string(None, 10), str):
-        break
+    print(randStr().rand_string(10))
+
 
 if __name__=='__main__':
     main()
