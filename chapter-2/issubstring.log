@@ -1,0 +1,1846 @@
+# 2017-01-31 21:08:36.664159
++string = 'ANPANMAN'
+
+# 2017-01-31 21:08:44.088296
++substring = 'PAN'
+
+# 2017-01-31 21:09:00.631399
++print(substring in string)
+
+# 2017-01-31 21:25:20.570359
++for i in range(len(string)):
++    if substring[i] == string[i]:
++        print(string[i])
+
+# 2017-01-31 21:25:47.043330
++for i in range(len(string)):
++    if i <= len(substring):
++        if substring[i] == string[i]:
++            print(string[i])
+
+# 2017-01-31 21:26:17.138846
++for i in range(len(string)):
++    if i > len(substring):
++        pass
++    elif substring[i] == string[i]:
++        print(string[i])
+
+# 2017-01-31 21:26:44.593519
++for i in range(len(string)):
++    if i > len(substring + 1):
++        pass
++    elif substring[i] == string[i]:
++        print(string[i])
+
+# 2017-01-31 21:26:53.193348
++for i in range(len(string)):
++    if i > len(substring) + 1:
++        pass
++    elif substring[i] == string[i]:
++        print(string[i])
+
+# 2017-01-31 21:27:00.328534
++for i in range(len(string)):
++    if i > len(substring) - 1:
++        pass
++    elif substring[i] == string[i]:
++        print(string[i])
+
+# 2017-01-31 21:27:41.224538
++string = 'ANPANMAN'
++substring = 'PAN'
++
++for i in range(len(string)):
++    if i > len(substring) - 1:
++        pass
++    elif substring[i] == string[i]:
++        print(string[i])
+
+# 2017-01-31 21:28:16.438448
++string = 'ANPANMAN'
++substring = 'PAN'
++
++print(string[2:-3])
+
+# 2017-01-31 21:28:40.637869
++string = 'ANPANPANMAN'
++substring = 'PANPAN'
++
++print(string[2:-6])
+
+# 2017-01-31 21:28:53.757508
++string = 'ANPANPANMAN'
++substring = 'PANPAN'
++
++print(string[2:-3])
+
+# 2017-01-31 21:30:01.629128
++string = 'ANPANPANMAN'
++substring = 'PANPAN'
++
++#print(string[2:-3])
++for i in range(len(string)):
++    print(string[0:i])
++
+
+# 2017-01-31 21:30:29.124913
++string = 'ANPANPANMAN'
++substring = 'PANPAN'
++
++#print(string[2:-3])
++for i in range(len(1, string + 1)):
++    print(string[0:i])
++
+
+# 2017-01-31 21:30:46.236129
++string = 'ANPANPANMAN'
++substring = 'PANPAN'
++
++#print(string[2:-3])
++for i in range(1, len(string) + 1):
++    print(string[0:i])
++
+
+# 2017-01-31 21:31:07.763229
++string = 'ANPANPANMAN'
++substring = 'PANPAN'
++
++#print(string[2:-3])
++for i in range(1, len(string) + 1):
++    print(string[i:i])
++
+
+# 2017-01-31 21:31:14.503611
++string = 'ANPANPANMAN'
++substring = 'PANPAN'
++
++#print(string[2:-3])
++for i in range(1, len(string) + 1):
++    print(string[i:1])
++
+
+# 2017-01-31 21:31:28.611739
++string = 'ANPANPANMAN'
++substring = 'PANPAN'
++
++#print(string[2:-3])
++for i in range(1, len(string) + 1):
++    print(string[1:-3])
++
+
+# 2017-01-31 21:31:46.458974
++string = 'ANPANPANMAN'
++substring = 'PANPAN'
++
++#print(string[2:-3])
++for i in range(1, len(string) + 1):
++    print(string[1:-len(string)])
++
+
+# 2017-01-31 21:31:58.498931
++string = 'ANPANPANMAN'
++substring = 'PANPAN'
++
++#print(string[2:-3])
++for i in range(1, len(string) + 1):
++    print(string[1:-len(substring)])
++
+
+# 2017-01-31 21:32:41.042457
++string = 'ANPANPANMAN'
++substring = 'PANPAN'
++npan = (len(substring) + 3)
++
++#print(string[2:-3])
++for i in range(1, len(string) + 1):
++    print(string[1:-anpan])
++
+
+# 2017-01-31 21:32:46.770072
++string = 'ANPANPANMAN'
++substring = 'PANPAN'
++npan = (len(substring) + 3)
++
++#print(string[2:-3])
++for i in range(1, len(string) + 1):
++    print(string[1:-npan])
++
+
+# 2017-01-31 21:32:59.889360
++string = 'ANPANPANMAN'
++substring = 'PANPAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(1, len(string) + 1):
++    print(string[1:-npan])
++
+
+# 2017-01-31 21:33:12.873416
++string = 'ANPANPANMAN'
++substring = 'PANPAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(1, len(string) + 1):
++    print(string[i:-npan])
++
+
+# 2017-01-31 21:33:25.672502
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(1, len(string) + 1):
++    print(string[i:-npan])
++
+
+# 2017-01-31 21:33:52.064574
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(1, len(string) + 2):
++    print(string[i:-npan])
++
+
+# 2017-01-31 21:33:57.497419
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(1, len(string) + 3):
++    print(string[i:-npan])
++
+
+# 2017-01-31 21:34:06.280737
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(0, len(string) + 1):
++    print(string[i:-npan])
++
+
+# 2017-01-31 21:34:31.559836
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(0, len(string) + 1):
++    print(string[i:])
++
+
+# 2017-01-31 21:35:00.374853
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(0, len(string) + 1):
++    print(string[:i])
++
+
+# 2017-01-31 21:35:20.622463
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(0, len(string) + 1):
++    print(string[i:i])
++
+
+# 2017-01-31 21:35:25.638916
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(0, len(string) + 1):
++    print(string[:i])
++
+
+# 2017-01-31 21:43:55.907766
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    for x in range(len(string) + 1):
++        print(string[x:i])
++
+
+# 2017-01-31 21:44:38.994633
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    print(string[1:i])
+
+# 2017-01-31 21:45:17.185568
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    print(string[-1:i])
+
+# 2017-01-31 21:45:25.777390
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    print(string[-i:1])
+
+# 2017-01-31 21:45:33.697117
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    print(string[1:i])
+
+# 2017-01-31 21:45:43.361139
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    print(string[0:i])
+
+# 2017-01-31 21:45:55.584725
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    print(string[0:-i])
+
+# 2017-01-31 21:47:37.112133
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    fstring = string[0:-i]
++    for x in range(len(string) + 1):
++        print(fstring[-x:0])
+
+# 2017-01-31 21:48:06.599712
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    fstring = string[0:-i]
++    print(fstring)
++    for x in range(len(string) + 1):
++        print(fstring[0:x])
+
+# 2017-01-31 21:48:18.694545
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    fstring = string[0:-i]
++    print(fstring)
++    #for x in range(len(string) + 1):
++    #    print(fstring[0:x])
+
+# 2017-01-31 21:48:35.583064
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    fstring = string[0:-i]
++    print(fstring)
++    #for x in range(len(string) + 1):
++    #    print(fstring[0:x])
+
+# 2017-01-31 21:48:57.887230
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    fstring = string[0:-i]
++    print(fstring)
++for x in range(len(string) + 1):
++    print(fstring[0:x])
+
+# 2017-01-31 21:49:10.423086
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    fstring = string[0:-i]
++    print(fstring)
++for x in range(len(string) + 1):
++    print(fstring)
++    print(fstring[0:x])
+
+# 2017-01-31 21:49:27.229328
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    fstring = string[0:-i]
++    print(fstring[0:x])
+
+# 2017-01-31 21:50:17.044913
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    fstring = string[0:-i]
++    print(fstring)
+
+# 2017-01-31 21:51:02.147563
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    shift = (len(substring) * 2)
++    fstring = string[shift:-i]
++    print(fstring)
+
+# 2017-01-31 21:51:08.781295
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    shift = (len(substring) * 2)
++    fstring = string[shift:1]
++    print(fstring)
+
+# 2017-01-31 21:51:19.852077
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    shift = (i * 2)
++    fstring = string[shift:1]
++    print(fstring)
+
+# 2017-01-31 21:51:28.387786
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    shift = (i * 3)
++    fstring = string[shift:1]
++    print(fstring)
+
+# 2017-01-31 21:51:33.860161
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    shift = (i * 3)
++    fstring = string[shift:0]
++    print(fstring)
+
+# 2017-01-31 21:51:37.827726
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    shift = (i * 3)
++    fstring = string[shift:]
++    print(fstring)
+
+# 2017-01-31 21:54:17.560583
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    shift = (i * 3)
++    print(shift)
++    fstring = string[shift:]
++    print(fstring)
+
+# 2017-01-31 21:54:58.232327
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    shift = (i * len(substring))
++    print(shift)
++    fstring = string[shift:]
++    print(fstring)
+
+# 2017-01-31 21:55:13.783874
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    shift = (i * len(substring))
++    print(shift)
++    fstring = string[:shift]
++    print(fstring)
+
+# 2017-01-31 21:55:58.422814
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    shift = (i * len(substring))
++    print(shift)
++    fstring = string[i:len(substring)]
++    print(fstring)
+
+# 2017-01-31 21:56:14.982406
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    shift = (i * len(substring))
++    print(shift)
++    fstring = string[3:len(substring)]
++    print(fstring)
+
+# 2017-01-31 21:56:20.119033
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    shift = (i * len(substring))
++    print(shift)
++    fstring = string[0:len(substring)]
++    print(fstring)
+
+# 2017-01-31 21:56:25.781603
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    fstring = string[0:len(substring)]
++    print(fstring)
+
+# 2017-01-31 21:56:36.021763
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    fstring = string[i:len(substring)]
++    print(fstring)
+
+# 2017-01-31 21:57:00.573865
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    fstring = string[i:len(substring)]
++    fstring = string[0:0]
++    print(fstring)
+
+# 2017-01-31 21:57:07.477069
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    fstring = string[i:len(substring)]
++    fstring = string[1:3]
++    print(fstring)
+
+# 2017-01-31 21:57:17.621485
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    #fstring = string[i:len(substring)]
++    fstring = string[1:4]
++    print(fstring)
+
+# 2017-01-31 21:57:25.500787
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    #fstring = string[i:len(substring)]
++    fstring = string[2:5]
++    print(fstring)
+
+# 2017-01-31 21:58:38.917057
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++for i in range(len(string) + 1):
++    #fstring = string[i:len(substring)]
++    fstring = string[0:3]
++    fstring = string[1:4]
++    fstring = string[2:5]
++    fstring = string[3:6]
++    fstring = string[4:7]
++    fstring = string[5:8]
++    fstring = string[6:9]
++    print(fstring)
+
+# 2017-01-31 21:59:06.638085
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++fstring = string[0:3]
++print(fstring)
++fstring = string[1:4]
++print(fstring)
++fstring = string[2:5]
++print(fstring)
++fstring = string[3:6]
++print(fstring)
++fstring = string[4:7]
++print(fstring)
++fstring = string[5:8]
++print(fstring)
++fstring = string[6:9]
++print(fstring)
+
+# 2017-01-31 22:04:03.474680
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++lcolon = 0
++rcolon = len(substring)
++
++for iteration in range(len(string)):
++    lcolon += len(substring)
++    rcolon += len(substring)
++    fstring = string[lcolon:rcolon]
++    print(fstring)
++
+
+# 2017-01-31 22:04:33.361706
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++lcolon = 0
++rcolon = len(substring)
++
++for iteration in range(len(string)):
++    lcolon += 1
++    rcolon += 1
++    fstring = string[lcolon:rcolon]
++    print(fstring)
++
+
+# 2017-01-31 22:05:06.641795
++print('\x1bc')
++
++string = 'ANPANMAN'
++substring = 'PAN'
++npan = (len(substring) + 1)
++shift = (len(substring))
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++lcolon = 0
++rcolon = len(substring)
++
++for iteration in range(len(string)):
++    lcolon += 1
++    rcolon += 1
++    fstring = string[lcolon:rcolon]
++    if fstring == substring:
++        print(fstring)
+
+# 2017-01-31 22:06:12.148988
++print('\x1bc')
++
++string = 'bazbarfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++lcolon = 0
++rcolon = len(substring)
++
++for iteration in range(len(string)):
++    lcolon += 1
++    rcolon += 1
++    fstring = string[lcolon:rcolon]
++    if fstring == substring:
++        print(fstring)
+
+# 2017-01-31 22:07:36.037209
++string = 'bazbarfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++lcolon = 0
++rcolon = len(substring)
++
++for iteration in range(len(string)):
++    lcolon += 1
++    rcolon += 1
++    fstring = string[lcolon:rcolon]
++    if fstring == substring:
++        print(fstring)
+
+# 2017-01-31 22:07:49.436445
++string = 'bazbarfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++lcolon = 0
++rcolon = len(substring)
++
++for iteration in range(len(string)):
++    lcolon += 1
++    rcolon += 1
++    fstring = string[lcolon:rcolon]
++    if fstring == substring:
++        print(fstring, end='')
+
+# 2017-01-31 22:07:56.253225
++string = 'bazbarfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++lcolon = 0
++rcolon = len(substring)
++
++for iteration in range(len(string)):
++    lcolon += 1
++    rcolon += 1
++    fstring = string[lcolon:rcolon]
++    if fstring == substring:
++        print(fstring)
+
+# 2017-01-31 22:09:22.332450
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffoofthequickbrownfoxjumpsoverthelazydogthequickbrownfoxjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++lcolon = 0
++rcolon = len(substring)
++
++for iteration in range(len(string)):
++    lcolon += 1
++    rcolon += 1
++    fstring = string[lcolon:rcolon]
++    if fstring == substring:
++        print(fstring)
+
+# 2017-01-31 22:10:25.402241
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++lcolon = 0
++rcolon = len(substring)
++
++for iteration in range(len(string)):
++    lcolon += 1
++    rcolon += 1
++    fstring = string[lcolon:rcolon]
++    if fstring == substring:
++        print(fstring)
+
+# 2017-01-31 22:13:00.782346
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++lcolon = 0
++rcolon = len(substring)
++
++found = False
++for iteration in range(len(string)):
++    lcolon += 1
++    rcolon += 1
++    fstring = string[lcolon:rcolon]
++    if fstring == substring:
++        found = True
++        #return found
+
+# 2017-01-31 22:14:36.342447
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++
++    found = False
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++
++            return found
+
+# 2017-01-31 22:14:53.987785
++print(is_substring(substring, string))
+
+# 2017-01-31 22:15:03.171630
++print(is_substring('bleh', 'blah'))
+
+# 2017-01-31 22:15:51.669853
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++
++    found = False
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++
++            return found
++print(is_substring(substring, string))
++print(is_substring('bleh', 'blah'))
+
+# 2017-01-31 22:16:56.167670
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++        else:
++            found = False
++
++            return found
++print(is_substring(substring, string))
++print(is_substring('bleh', 'blah'))
++
+
+# 2017-01-31 22:17:21.163362
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++        elif fstring != substring:
++            found = False
++
++            return found
++print(is_substring(substring, string))
++print(is_substring('bleh', 'blah'))
++
+
+# 2017-01-31 22:17:24.643906
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++        elif fstring != substring:
++            found = False
++
++            return found
++print(is_substring(substring, string))
++#print(is_substring('bleh', 'blah'))
++
+
+# 2017-01-31 22:17:38.652388
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++        #elif fstring != substring:
++        #    found = False
++
++            return found
++print(is_substring(substring, string))
++#print(is_substring('bleh', 'blah'))
++
+
+# 2017-01-31 22:17:45.787336
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++        #elif fstring != substring:
++        #    found = False
++
++        return found
++print(is_substring(substring, string))
++#print(is_substring('bleh', 'blah'))
++
+
+# 2017-01-31 22:18:11.778313
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++            return found
++        else:
++            found = False
++
++        return found
++print(is_substring(substring, string))
++#print(is_substring('bleh', 'blah'))
+
+# 2017-01-31 22:18:37.497350
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++            return found
++        else:
++            print('fuck')
++            #found = False
++
++        return found
++print(is_substring(substring, string))
++#print(is_substring('bleh', 'blah'))
+
+# 2017-01-31 22:18:41.613185
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++            return found
++        else:
++            print('fuck')
++            #found = False
++
++        #return found
++print(is_substring(substring, string))
++#print(is_substring('bleh', 'blah'))
+
+# 2017-01-31 22:19:10.361231
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++            return found
++        else:
++            print('fuck')
++            found = False
++
++        #return found
++print(is_substring(substring, string))
++#print(is_substring('bleh', 'blah'))
+
+# 2017-01-31 22:19:28.752505
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++            return found
++        else:
++            print('fuck')
++            found = False
++
++        return found is True
++print(is_substring(substring, string))
++#print(is_substring('bleh', 'blah'))
+
+# 2017-01-31 22:20:23.509890
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++    found = False
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++        return found
++        #else:
++        #    print('fuck')
++        #    found = False
++
++        #return found is True
++print(is_substring(substring, string))
++#print(is_substring('bleh', 'blah'))
+
+# 2017-01-31 22:20:33.830293
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++    #found = False
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++        return found
++        #else:
++        #    print('fuck')
++        #    found = False
++
++        #return found is True
++print(is_substring(substring, string))
++#print(is_substring('bleh', 'blah'))
+
+# 2017-01-31 22:21:36.020761
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++    #found = False
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++            return found
++        if rcolon > len(string):
++            print('test')
++
++        #return found is True
++print(is_substring(substring, string))
++#print(is_substring('bleh', 'blah'))
+
+# 2017-01-31 22:21:42.684960
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++    #found = False
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++            return found
++        if rcolon >= len(string):
++            print('test')
++
++        #return found is True
++print(is_substring(substring, string))
++#print(is_substring('bleh', 'blah'))
+
+# 2017-01-31 22:21:55.149489
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++    #found = False
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++            return found
++        if rcolon >= len(string):
++            print('test')
++
++        #return found is True
++print(is_substring(substring, string))
++print(is_substring('bleh', 'blah'))
+
+# 2017-01-31 22:22:26.771856
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++#print(string[2:-3])
++#for i in range(len(string) + 1):
++#    #fstring = string[i:len(substring)]
++#fstring = string[0:3]
++#print(fstring)
++#fstring = string[1:4]
++#print(fstring)
++#fstring = string[2:5]
++#print(fstring)
++#fstring = string[3:6]
++#print(fstring)
++#fstring = string[4:7]
++#print(fstring)
++#fstring = string[5:8]
++#print(fstring)
++#fstring = string[6:9]
++#print(fstring)
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++    #found = False
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++            return found
++        if rcolon >= len(string):
++            found = False
++            return found
++
++        #return found is True
++print(is_substring(substring, string))
++print(is_substring('bleh', 'blah'))
+
+# 2017-01-31 23:42:24.973120
++string = 'bazbarthequickbrownfoxjumpsoverthelazydogoffthequickbrownfoxjumpsoverthelazydogthequickbrownoofjumpsoverthelazyfoo'
++substring = 'foo'
++
++def is_substring(substring, string):
++    lcolon = 0
++    rcolon = len(substring)
++
++    for iteration in range(len(string)):
++        lcolon += 1
++        rcolon += 1
++
++        fstring = string[lcolon:rcolon]
++        if fstring == substring:
++            found = True
++            return found
++        if rcolon >= len(string):
++            found = False
++            return found
++
++print(is_substring(substring, string))
++print(is_substring('bleh', 'blah'))

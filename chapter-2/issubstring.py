@@ -1,40 +1,48 @@
+""" issubstring.py | Tue, Jan 31, 2017 | Roman S. Collins
+
+    Implementation of Boyer-Moore string search algorithm in Python.
+
+    Source:
+    https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm
+    https://duckduckgo.com/?q=python+substring+function&t=ffab&ia=q://duckduckgo.com/?q=python+substring+function&t=ffab&ia=qa
+
 """
-"""
-class isSubstring:
-    # can find foo in barfoobaz
-    # but finds ANPANAN in ANPANMAN
+
+class isSubStr:
     def is_substring(self, substring, string):
-        substring  = list(substring)
-        string = list(string)
+        lcolon = 0
+        rcolon = len(substring)
 
-        #y = 0
-        #print(substring, string)
-        #for i in range(len(string)):
-        #    for x in range(len(substring)):
-        #        if substring[x] == string[i]:
-        #            y += 1
-        #            print(string[i])
-        #            if y > (len(substring) - 2):
-        #                break
+        for iteration in range(len(string)):
+            lcolon += 1
+            rcolon += 1
+            fstring = string[lcolon:rcolon]
 
-        for i in range(len(string)):
-            try:
-                if string[i] == substring[i]:
-                    print(substring[i])
-            except IndexError:
-                pass
+            if fstring == substring:
+                found = True
+                return found
+
+            if rcolon >= len(string):
+                found = False
+                return found
+
+    def default_is_substring(self, a, b):
+        return a in b
 
 def main():
     """ Doctest:
-    >>> print('Hello world!')
-    Hello world!
+    >>> string = 'ANPANMAN'
+    >>> substring = 'PAN'
+    >>> print(isSubStr().is_substring(substring, string))
+    True
+    >>> print(isSubStr().default_is_substring(substring, string))
+    True
     """
-    iss = isSubstring()
+    string = 'ANPANMAN'
+    substring = 'PAN'
 
-    #iss.is_substring('foo', 'barfoobaz')
-    iss.is_substring('PAN', 'NAP')
+    while isSubStr().is_substring(substring, string) == False:
+        print('ANPANMAN')
 
 if __name__=='__main__':
-    import doctest
-    doctest.testmod()
     main()

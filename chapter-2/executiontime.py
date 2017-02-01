@@ -43,7 +43,7 @@ def main():
         we can do?
         Doctest:
         >>> sus = [1, 3, 34, 53, 645, 234, 6234, 111, 1123, 100, 12, 12, 23]
-        >>> result, exec_time = execution_time(sum(sus), 2000000)
+        >>> result, exec_time = execution_time(sum(sus), 10000)
         >>> isinstance(result, int)
         True
         >>> isinstance(exec_time, float)
