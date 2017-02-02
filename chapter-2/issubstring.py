@@ -9,14 +9,11 @@
 """
 
 class isSubStr:
-    string = 'checkoffcheckoofcheckfool'
-    substring = 'foo'
-
-    def is_substring(self, substring, string):
+    def is_substring(self, substring, longstring):
         lcolon = 0; rcolon = len(substring); found = False
 
-        for a_iteration in range(len(string) + 1):
-            astring = string[lcolon:rcolon]
+        for a_iteration in range(len(longstring) + 1):
+            astring = longstring[lcolon:rcolon]
             lcolon += 1; rcolon += 1; check_char = 0
 
             for b_iteration in range(len(astring)):
@@ -35,7 +32,7 @@ class isSubStr:
             #    return found
             #    pass
 
-            if rcolon >= (len(string) + 1):
+            if rcolon >= (len(longstring) + 1):
                 found = False
                 return found
 
@@ -46,17 +43,20 @@ def main():
     """ Doctest:
     >>> string = 'ANPANMAN'
     >>> substring = 'PAN'
-    >>> print(isSubStr().is_substring(substring, string))
+    >>> print(isSubStr().is_substring(substring, longstring))
     True
-    >>> print(isSubStr().default_is_substring(substring, string))
+    >>> print(isSubStr().default_is_substring(substring, longstring))
     True
     """
-    string = 'ANPANMAN'
+    longstring = 'ANPANMAN'
     substring = 'PAN'
 
-    while isSubStr().is_substring(substring, string):
+    longstring = 'checkoffcheckoofcheckfool'
+    substring = 'foo'
+
+    while isSubStr().is_substring(substring, longstring):
         break
-        print(isSubStr().is_substring(substring, string))
+        print(isSubStr().is_substring(substring, longstring))
 
 if __name__=='__main__':
     main()
