@@ -39,6 +39,41 @@ class isSubStr:
     def default_is_substring(self, a, b):
         return a in b
 
+    # Dylan's substring search algorithm (not my code, please see source):
+    # http://pastebin.com/2SB6iAa6
+    def dylan_is_substring(self, a, b):
+        found = False
+        for x in range(len(b)):
+            for i in range(len(a)):
+                if x + i >= len(b):
+                    found = False
+                    break
+                if a[i] == b[x + i]:
+                    found = True
+                else:
+                    found = False
+                    break
+            if found:
+                break
+        return found
+
+    # Jim's substring search algorithm (not my code, please see source):
+    # http://cs.marlboro.edu/courses/spring2017/algorithms/code/hw_feb2/substring.py
+    def jim_is_substring(self, shortstring, longstring):
+        offsets = len(longstring) - len(shortstring) + 1
+        if offsets < 1:
+            return False
+        #else:
+        for offset in range(offsets):
+            success = True
+            for i in range(len(shortstring)):
+                if shortstring[i] != longstring[i + offset]:
+                    success = False
+                    break
+            if success:
+                return True
+        return False
+
 def main():
     """ Doctest:
     >>> string = 'ANPANMAN'
@@ -47,16 +82,20 @@ def main():
     True
     >>> print(isSubStr().default_is_substring(substring, longstring))
     True
+    >>> print(isSubStr().dylan_is_substring(substring, longstring))
+    True
+    >>> print(isSubStr().jim_is_substring(substring, longstring))
+    True
     """
-    longstring = 'ANPANMAN'
-    substring = 'PAN'
-
-    longstring = 'checkoffcheckoofcheckfool'
     substring = 'foo'
+    fullstring = 'checkoffcheckoofcheckfool'
 
-    while isSubStr().is_substring(substring, longstring):
-        break
-        print(isSubStr().is_substring(substring, longstring))
+    #while isSubStr().is_substring(substring, longstring):
+    #    break
+    print(isSubStr().is_substring(substring, fullstring))
+    print(isSubStr().default_is_substring(substring, fullstring))
+    print(isSubStr().dylan_is_substring(substring, fullstring))
+    print(isSubStr().jim_is_substring(substring, fullstring))
 
 if __name__=='__main__':
     main()
