@@ -24,6 +24,45 @@ class Stack:
      def size(self):
          return len(self.items)
 
+def parChecker(symbolString):
+    s = Stack()
+    balanced = True
+    index = 0
+    # while 0 or 1 or 2... shorter than
+    # fullstring passed as args
+    # assumed to be true
+    while index < len(symbolString) and balanced:
+        # if fullstring is ((()))
+        # symbol is (
+        symbol = symbolString[index]
+        # True
+        if symbol == "(":
+            # add to top of stack
+            s.push(symbol)
+        # Otherwise ) or None
+        # or not (
+        else:
+            # check if None
+            if s.isEmpty():
+                # if none, then
+                # the string is not
+                # balanced because
+                # it's nothing
+                balanced = False
+            else:
+                # If something
+                # remove it
+                s.pop()
+
+        #index = index + 1
+        index += 1
+
+    if balanced and s.isEmpty():
+        return True
+    else:
+        return False
+    # hmm..
+
 def main():
     s = Stack()
     print(s.isEmpty())
@@ -37,6 +76,12 @@ def main():
     print(s.pop())
     print(s.pop())
     print(s.size())
+    # True
+    print(parChecker('((()))'))
+    # False
+    print(parChecker('(()'))
+    # True
+    print(parChecker(''))
 
 if __name__ == '__main__':
     main()
