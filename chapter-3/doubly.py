@@ -38,23 +38,20 @@ class Node:
         # __str__ method, which calls the
         # previous Node into infinity
 
-"""
-    def return_prev(self):
-        return self.prev_node
+        # def return_prev(self):
+        #     return self.prev_node
 
-    def return_next(self):
-        return self.next_node
+        # def return_next(self):
+        #     return self.next_node
 
-    def new_prev(self, new_prev_node = None):
-        self.prev_node = new_prev_node
+        # def new_prev(self, new_prev_node = None):
+        #     self.prev_node = new_prev_node
 
-    def new_next(self, new_next_node = None):
-        self.next_node = new_next_node
+        # def new_next(self, new_next_node = None):
+        #     self.next_node = new_next_node
 
-    def new_data(self, new_data = None):
-        self.data = new_data
-"""
-from termcolor import colored
+        # def new_data(self, new_data = None):
+        #     self.data = new_data
 
 #TODO
 class DoublyLinkedList:
@@ -63,32 +60,30 @@ class DoublyLinkedList:
 
         From Stack Overflow discussion earlier
     """
-    __slot__ = 'self.label', 'self.index', 'self.front_id', 'self.end_id'
+    __slot__ = 'self.label', 'self.index', 'self.front', 'self.rear'
 
     def __init__(self, label=''):
         self.label = label
         self.index = 0
-        self.front_id = Node(None)
-        self.end_id = Node(None)
-        self.front_id.next_node = self.end_id
-        self.end_id.prev_node = self.front_id
+        self.front = Node(None)
+        self.rear = Node(None)
+
 
     def __str__(self, index=None):
         if index is None:
-            # How to literally put {} into a string {{ and }}
-            # https://stackoverflow.com/questions/5466451/how-can-i-print-literal-curly-brace-characters-in-python-string-and-also-use-fo
-            return '<- {{{} | {} | {}}} ->'.format(self.front_id, self.front_id.data, self.end_id)
+            return '{} {}'.format(self.front.data, self.rear.data)
         #TODO:
         # Related to API for indexing over the list
         # For instance, Python default lists
+        # indexing works like list[2]
         else:
             pass
 
     # Like isEmpty() from the chapter
     def empty(self):
-        if self.front_id.data == None:
+        if self.front.data == None:
             return True
-        elif self.front_id_data == None:
+        elif self.rear == None:
             return False
 
     #TODO:
@@ -96,11 +91,12 @@ class DoublyLinkedList:
     # first element
     def push(self, data=None):
         print('DEBUG: push() initiated')
+        self.front = Node(data)
 
     #TODO:
     # Pop should remove from the front(top) as in a stack
     # first element
-    def pop(self):
+    def pop(self, data):
         pass
 
     #TODO:
@@ -108,21 +104,40 @@ class DoublyLinkedList:
     # rear | front
     # Queue should add to the "rear" as in a queue
     # first element
-    def enqueue(self):
-        pass
+    def enqueue(self, data=None):
+        self.index += 1
+        self.rear = self.front
+        new_node = Node(data)
+        self.front = new_node
+
     #TODO:
     # Dequeue should remove from the "front" as in a queue
     # nth element
     def dequeue(self):
-        pass
+        self.index -= 1
+
+    def DIR(self):
+        return dir(self)
 
 def main():
     doubly = DoublyLinkedList()
     print(doubly)
-    print(doubly.empty())
 
-    doubly.push(data='dog')
+    doubly.enqueue('dog')
     print(doubly)
+    # Queue: 'dog', ...
+    doubly.enqueue('cat')
+    print(doubly)
+    # Queue: 'cat', 'dog', ...
+    doubly.enqueue('rabbit')
+    print(doubly)
+    # Queue: 'rabbit', 'cat', 'dog', ...
+    doubly.enqueue(1)
+    print(doubly)
+    # Queue: 1, 'rabbit', 'cat', 'dog', ...
+    # Queue: front | 1, 'rabbit', 'cat', 'dog', rear |...
+
+    print(doubly.DIR())
 
 if __name__ == '__main__':
     main()
