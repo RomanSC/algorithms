@@ -66,12 +66,13 @@ class DoublyLinkedList:
         self.label = label
         self.index = 0
         self.front = Node(None)
+        self.current = Node(None)
         self.rear = Node(None)
 
 
     def __str__(self, index=None):
         if index is None:
-            return '{} {}'.format(self.front.data, self.rear.data)
+            return '{}'.format(self.current.data)
         #TODO:
         # Related to API for indexing over the list
         # For instance, Python default lists
@@ -108,7 +109,7 @@ class DoublyLinkedList:
         self.index += 1
         self.rear = self.front
         new_node = Node(data)
-        self.front = new_node
+        self.current = new_node
 
     #TODO:
     # Dequeue should remove from the "front" as in a queue
@@ -121,23 +122,34 @@ class DoublyLinkedList:
 
 def main():
     doubly = DoublyLinkedList()
-    print(doubly)
+    print('DEBUG: doubly = DoublyLinkedList(): ', doubly)
 
-    doubly.enqueue('dog')
-    print(doubly)
-    # Queue: 'dog', ...
-    doubly.enqueue('cat')
-    print(doubly)
-    # Queue: 'cat', 'dog', ...
-    doubly.enqueue('rabbit')
-    print(doubly)
-    # Queue: 'rabbit', 'cat', 'dog', ...
+    # doubly.enqueue('dog')
+    # print('DEBUG: doubly.enqueue(\'dog\'): ', doubly)
+    # # Queue: 'dog', ...
+    # doubly.enqueue('cat')
+    # print(str(doubly))
+    # # Queue: 'cat', 'dog', ...
+    # doubly.enqueue('rabbit')
+    # print(str(doubly))
+    # # Queue: 'rabbit', 'cat', 'dog', ...
+    # doubly.enqueue(1)
+    # print(str(doubly))
+    # # Queue: 1, 'rabbit', 'cat', 'dog', ...
+    # # Queue: front | 1, 'rabbit', 'cat', 'dog', rear |...
+
+    #print(doubly.DIR())
+
     doubly.enqueue(1)
-    print(doubly)
-    # Queue: 1, 'rabbit', 'cat', 'dog', ...
-    # Queue: front | 1, 'rabbit', 'cat', 'dog', rear |...
-
-    print(doubly.DIR())
+    print(doubly.current.data, end='')
+    doubly.enqueue(2)
+    print(doubly.current.data, end='')
+    doubly.enqueue(3)
+    print(doubly.current.data, end='')
+    doubly.enqueue(4)
+    #print(doubly.prev_node.data)
+    print(doubly.current.data, end='')
+    #print(doubly.next_node.data)
 
 if __name__ == '__main__':
     main()
