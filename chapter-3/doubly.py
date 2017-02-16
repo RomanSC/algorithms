@@ -11,145 +11,84 @@
 
 """
 class Node:
-    """ Slots create faster access to class attributes
-        where not dict is used, and can't be used.
-
-        Since we are essentially implementing our
-        own list API, and want to keep builtin
-        Python functions like list and dicts
-        to a minimum. So... why not.
-
-        Sources:
-        https://stackoverflow.com/questions/472000/usage-of-slots
-    """
-    __slot__ = 'data', 'prev_node', 'next_node'
-
-    # This is all we need for our Node object
-    def __init__(self, data, prev_node = None, next_node = None):
+    def __init__(self, data, lpointer = None, rpointer = None):
         self.data = data
-        self.prev_node = prev_node
-        self.next_node = next_node
+        # Node objects should contain data
+        # then each pointer, I chose the
+        # Naming scheme "left" pointer
+        # "right" pointer
+        self.lpointer = lpointer
+        self.rpointer = rpointer
 
-        # Instead of creating Node with a __str__
-        # method, as that was giving me recursion
-        # errors, clearly because as soon as
-        # __str__ method is called, another
-        # Node is called along with it's own
-        # __str__ method, which calls the
-        # previous Node into infinity
-
-        # def return_prev(self):
-        #     return self.prev_node
-
-        # def return_next(self):
-        #     return self.next_node
-
-        # def new_prev(self, new_prev_node = None):
-        #     self.prev_node = new_prev_node
-
-        # def new_next(self, new_next_node = None):
-        #     self.next_node = new_next_node
-
-        # def new_data(self, new_data = None):
-        #     self.data = new_data
-
-#TODO
-class DoublyLinkedList:
-    """ "When inheriting from a class without __slots__, the __dict__ attribute of that class
-        will always be accessible, so a __slots__ definition in the subclass is meaningless."
-
-        From Stack Overflow discussion earlier
-    """
-    __slot__ = 'self.label', 'self.index', 'self.front', 'self.rear'
-
-    def __init__(self, label=''):
+class SinglyLinkedList:
+    def __init__(self, label='SinglyLinkedList'):
         self.label = label
-        self.index = 0
-        self.front = Node(None)
-        self.current = Node(None)
-        self.rear = Node(None)
+        self.indx = - 1 # overall amount of items in the list
+        self.nth = Node(None) # first node in the list
 
+    def __str__(self):
+        return '{} {}'.format(self.label + ':', self.nth.data)
 
-    def __str__(self, index=None):
-        if index is None:
-            return '{}'.format(self.current.data)
-        #TODO:
-        # Related to API for indexing over the list
-        # For instance, Python default lists
-        # indexing works like list[2]
+    def push(self, data):
+        # How to: add operation
+        # https://youtu.be/Ast5sKQXxEU?t=96
+        new_node = Node(data, rpointer = self.nth)
+        self.nth = new_node
+        self.indx += 1
+
+    def pop(self):
+        # Swapparoo and -1 from indx
+        self.nth = self.nth.rpointer # last item is always here
+        self.indx -= 1
+
+    def length(self):
+        return (self.indx + 1)
+
+    def findx(self, n):
+        if n > self.indx:
+            raise IndexError('list index out of range\nlist index out of range')
         else:
-            pass
+            indx = self.indx
+            curr_node = self.nth
+            while indx != n:
+                curr_node = curr_node.rpointer
+                indx -= 1
 
-    # Like isEmpty() from the chapter
-    def empty(self):
-        if self.front.data == None:
+            return curr_node.data
+
+    def isEmpty(self):
+        if (self.indx < 0):
             return True
-        elif self.rear == None:
+        else:
             return False
 
-    #TODO:
-    # Push should add to the front(top) as in a stack
-    # first element
-    def push(self, data=None):
-        print('DEBUG: push() initiated')
-        self.front = Node(data)
+    def peek(self):
+        return self.nth.data
 
-    #TODO:
-    # Pop should remove from the front(top) as in a stack
-    # first element
-    def pop(self, data):
-        pass
-
-    #TODO:
-    # http://interactivepython.org/runestone/static/pythonds/BasicDS/WhatIsaQueue.html
-    # rear | front
-    # Queue should add to the "rear" as in a queue
-    # first element
-    def enqueue(self, data=None):
-        self.index += 1
-        self.rear = self.front
-        new_node = Node(data)
-        self.current = new_node
-
-    #TODO:
-    # Dequeue should remove from the "front" as in a queue
-    # nth element
-    def dequeue(self):
-        self.index -= 1
-
-    def DIR(self):
-        return dir(self)
+# class DoublyLinkedList:
 
 def main():
-    doubly = DoublyLinkedList()
-    print('DEBUG: doubly = DoublyLinkedList(): ', doubly)
-
-    # doubly.enqueue('dog')
-    # print('DEBUG: doubly.enqueue(\'dog\'): ', doubly)
-    # # Queue: 'dog', ...
-    # doubly.enqueue('cat')
-    # print(str(doubly))
-    # # Queue: 'cat', 'dog', ...
-    # doubly.enqueue('rabbit')
-    # print(str(doubly))
-    # # Queue: 'rabbit', 'cat', 'dog', ...
-    # doubly.enqueue(1)
-    # print(str(doubly))
-    # # Queue: 1, 'rabbit', 'cat', 'dog', ...
-    # # Queue: front | 1, 'rabbit', 'cat', 'dog', rear |...
-
-    #print(doubly.DIR())
-
-    doubly.enqueue(1)
-    print(doubly.current.data, end='')
-    doubly.enqueue(2)
-    print(doubly.current.data, end='')
-    doubly.enqueue(3)
-    print(doubly.current.data, end='')
-    doubly.enqueue(4)
-    #print(doubly.prev_node.data)
-    print(doubly.current.data, end='')
-    #print(doubly.next_node.data)
+    # A singly linked list
+    singly = SinglyLinkedList()
+    singly.push('cat')
+    singly.push('rabbit')
+    singly.push('fish')
+    singly.push('ghoti')
+    print(singly.length())
+    print(singly.findx(0))
+    print(singly.findx(1))
+    print(singly.isEmpty())
+    print(singly.findx(2))
+    print(singly.findx(3))
+    print(singly.peek())
+    singly.pop()
+    print(singly.findx(2))
+    for i in range(singly.length()):
+        singly.pop()
+    print(singly.length())
+    print(singly.isEmpty())
+    print(singly.peek())
 
 if __name__ == '__main__':
     main()
+
