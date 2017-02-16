@@ -1,4 +1,4 @@
-""" doubly.py | Fri, Feb 10, 2017 | Roman S. Collins
+""" singly.py | Fri, Feb 10, 2017 | Roman S. Collins
 
     Assignment:
 
@@ -10,18 +10,10 @@
     to insert a new element into the list.
 
 """
-class Node:
-    def __init__(self, data, lpointer = None, rpointer = None):
-        self.data = data
-        # Node objects should contain data
-        # then each pointer, I chose the
-        # Naming scheme "left" pointer
-        # "right" pointer
-        self.lpointer = lpointer
-        self.rpointer = rpointer
+from node import *
 
-class SinglyLinkedList:
-    def __init__(self, label='SinglyLinkedList'):
+class DoublyLinkedList:
+    def __init__(self, label='DoublyLinkedList'):
         self.label = label
         self.indx = - 1 # overall amount of items in the list
         self.nth = Node(None) # first node in the list
@@ -50,7 +42,7 @@ class SinglyLinkedList:
         else:
             indx = self.indx
             curr_node = self.nth
-            while indx != n:
+            while (indx != n):
                 curr_node = curr_node.rpointer
                 indx -= 1
 
@@ -65,29 +57,27 @@ class SinglyLinkedList:
     def peek(self):
         return self.nth.data
 
-# class DoublyLinkedList:
-
 def main():
     # A singly linked list
-    singly = SinglyLinkedList()
-    singly.push('cat')
-    singly.push('rabbit')
-    singly.push('fish')
-    singly.push('ghoti')
-    print(singly.length())
-    print(singly.findx(0))
-    print(singly.findx(1))
-    print(singly.isEmpty())
-    print(singly.findx(2))
-    print(singly.findx(3))
-    print(singly.peek())
-    singly.pop()
-    print(singly.findx(2))
-    for i in range(singly.length()):
-        singly.pop()
-    print(singly.length())
-    print(singly.isEmpty())
-    print(singly.peek())
+    doubly = DoublyLinkedList()
+    doubly.push('cat')
+    doubly.push('rabbit')
+    doubly.push('fish')
+    doubly.push('ghoti')
+    print(doubly.length())
+    print(doubly.findx(0))
+    print(doubly.findx(1))
+    print(doubly.isEmpty())
+    print(doubly.findx(2))
+    print(doubly.findx(3))
+    print(doubly.peek())
+    doubly.pop()
+    print(doubly.findx(2))
+    for i in range(doubly.length()):
+        doubly.pop()
+    print(doubly.length())
+    print(doubly.isEmpty())
+    print(doubly.peek())
 
 if __name__ == '__main__':
     main()

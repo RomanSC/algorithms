@@ -10,15 +10,7 @@
     to insert a new element into the list.
 
 """
-class Node:
-    def __init__(self, data, lpointer = None, rpointer = None):
-        self.data = data
-        # Node objects should contain data
-        # then each pointer, I chose the
-        # Naming scheme "left" pointer
-        # "right" pointer
-        self.lpointer = lpointer
-        self.rpointer = rpointer
+from node import *
 
 class SinglyLinkedList:
     def __init__(self, label='SinglyLinkedList'):
@@ -64,8 +56,6 @@ class SinglyLinkedList:
 
     def peek(self):
         return self.nth.data
-
-# class DoublyLinkedList:
 
 def main():
     # A singly linked list
