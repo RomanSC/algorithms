@@ -37,7 +37,7 @@ class SinglyLinkedList:
         return (self.indx + 1)
 
     def findx(self, n):
-        if n > self.indx:
+        if (n > self.indx):
             raise IndexError('list index out of range\nlist index out of range')
         else:
             indx = self.indx
