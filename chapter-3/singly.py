@@ -29,7 +29,6 @@ class SinglyLinkedList:
         self.indx += 1
 
     def pop(self):
-        # Swapparoo and -1 from indx
         self.nth = self.nth.rpointer # last item is always here
         self.indx -= 1
 
@@ -77,6 +76,12 @@ def main():
         singly.pop()
     print(singly.length())
     print(singly.isEmpty())
+    print(singly.peek())
+
+    singly.push('cat')
+    singly.push('dog')
+    singly.push('rabbit')
+
     print(singly.peek())
 
 if __name__ == '__main__':
