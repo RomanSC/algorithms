@@ -84,6 +84,12 @@ def main():
 
     print(singly.peek())
 
+    while not singly.isEmpty():
+        print('DEBUG: pop!')
+        singly.pop()
+
+    print(singly.peek())
+
 if __name__ == '__main__':
     main()
 
