@@ -2,6 +2,8 @@
 
     Hash table function written in Python.
 
+    Write and test a program that stores strings in a hash table. All the details are up to you, including the choice of a hash function and how to handle collisions. Do explain what's going on, and what the pros and cons are of your choices. Again, you can use code from the textbook - or parts of their code - but if so quote your sources and make sure you understand it. 
+
 """
 import os, time
 
