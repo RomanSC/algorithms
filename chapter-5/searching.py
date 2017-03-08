@@ -31,12 +31,12 @@ def binary(find, mylist):
     l = mylist[:(len(mylist)//2)]
     r = mylist[(len(mylist)//2):]
 
-    print("DEBUG: searching {} for {}".format(mylist, find))
-    print(mylist)
-    print("DEBUG: l and r")
-    print(l)
-    print(r)
-    print("\n")
+    # print("DEBUG: searching {} for {}".format(mylist, find))
+    # print(mylist)
+    # print("DEBUG: l and r")
+    # print(l)
+    # print(r)
+    # print("\n")
 
     if l[-1:][0] != find: # Recurse until false
         if find < l[-1:][0]:
@@ -50,7 +50,7 @@ def binary(find, mylist):
 def main():
     #find, mylist = 4, [random.randint(1, 5000) for n in range(1, 11)]
     find, mylist = 34, [n for n in range(1, 11)]
-    # find, mylist = 4, [n for n in range(1, 11)]
+    find, mylist = 4, [n for n in range(1, 11)]
 
     #print(sequential(find, mylist))
     print(binary(find, mylist))
