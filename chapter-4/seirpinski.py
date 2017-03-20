@@ -49,7 +49,7 @@ def main():
     tri.triangle(xs[0], ys[0], xs[1],ys[1], xs[2],ys[2], 'red')
 
     # Seirpinski using recursion
-    tri.seirpinski(xs[0], ys[0], xs[1],ys[1], xs[2],ys[2],  6)
+    tri.seirpinski(xs[0], ys[0], xs[1],ys[1], xs[2],ys[2],  10)
 
     # Don't close until enter is pressed.
     wait = input('Done! Type Enter to close: ')
