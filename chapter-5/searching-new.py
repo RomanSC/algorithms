@@ -22,7 +22,7 @@ def sequential(find, mylist):
 
     return False
 
-def binary(find, mylist):
+def binary(find, mylist, found=False):
     """ Doctest:
         # >>> find, mylist = 3, [1, 2, 3]
         # >>> binary(find, mylist)
@@ -35,32 +35,34 @@ def binary(find, mylist):
         https://www.khanacademy.org/computing/computer-science/algorithms/binary-search/a/implementing-binary-search-of-an-array
 
     """
-    l = mylist[:(len(mylist)//2)]
-    r = mylist[(len(mylist)//2):]
+    found = False
 
-    print("DEBUG: searching {} for {}".format(mylist, find))
-    print(mylist)
-    print("DEBUG: l and r")
-    print(l)
-    print(r)
-    print("\n")
+    i = 0
+    while not found and i < 10:
+        top = (len(mylist) - 1)
+        bot = 0
+        midpoint = ((len(mylist) // 2) - 1)
+        print(mylist)
+        print(mylist[top])
 
-    if l[-1:] != find: # Recurse until false
-        print(l[-1:])
-        if find < l[-1:][0]:
-            binary(find, l)
+        if find == mylist[-1:][0]:
+            found == True
+            break
 
-        if find > l[-1:][0]:
-            binary(find, r)
-        elif find > r[-1:][0]:
-            return
+        if find < top:
+            mylist = mylist[:(len(mylist)//2)]
 
-    return True
+        if find > top:
+            mylist = mylist[(len(mylist)//2):]
+
+        i += 1
+
+    return found
 
 def main():
     #find, mylist = 4, [random.randint(1, 5000) for n in range(1, 11)]
     find, mylist = 34, [n for n in range(1, 11)]
-    #find, mylist = 4, [n for n in range(1, 11)]
+    find, mylist = 4, [n for n in range(1, 11)]
 
     #print(sequential(find, mylist))
     print(binary(find, mylist))
