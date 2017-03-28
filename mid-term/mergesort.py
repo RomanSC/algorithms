@@ -67,6 +67,7 @@ def mergesort(mylist):
 
         i, j, k = 0, 0, 0
 
+        # Sorts lists for comparison
         while i < len(low) and j < len(high):
             if low[i] < high[j]:
                 mylist[k] = low[i]
@@ -77,15 +78,23 @@ def mergesort(mylist):
 
             k += 1
 
+        #print(mylist)
+
+        # Compare items and move indeces
         while i < len(low):
             mylist[k] = low[i]
             i += 1
             k += 1
 
+        #print(mylist)
+
+        # Compare items and move indeces
         while j < len(high):
             mylist[k] = high[j]
             j += 1
             k += 1
+
+        #print(mylist)
 
     else: # The list is already sorted
           # because it's length is one.
@@ -94,12 +103,13 @@ def mergesort(mylist):
     return mylist
 
 def main():
-    mylist = create(iterations=2, floor=1, ceiling=13, countby=3)
+    mylist = create(iterations=200000, floor=1, ceiling=13, countby=3)
+    #mylist = [7, 32, 4, 2, 1, 3]
     print("Unsorted   :", mylist)
     mergesorted, time = timeme(mergesort(mylist))
     print("Mergesort  :", mergesorted, time)
-    pythonsorted, time = timeme(sorted(mylist))
-    print("Pythonsort :", pythonsorted, time)
+    #pythonsorted, time = timeme(sorted(mylist))
+    #print("Pythonsort :", pythonsorted, time)
 
 
 if __name__ == "__main__":
