@@ -1,7 +1,11 @@
 """ tree-data-structure.py | Tue, Mar 28, 2017 | Roman S. Collins
+
+    An example of a tree data structure in Python.
+
 """
 class Leaf:
-    def __init__(self, parent=None, childs=[]):
+    def __init__(self, data=None, parent=None, childs=[]):
+        self.data = data
         self.parent = parent
         self.childs = childs
 
