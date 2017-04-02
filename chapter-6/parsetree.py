@@ -37,6 +37,7 @@ def format_exp(exp, accept_chars=["(", "+", "-", "*", "**", "/", "//", "%", "^",
         elif exp[x] in accept_chars:
             exp_slice.append(exp[x])
 
+    print("Formatted expression: ", exp_slice)
     return exp_slice
 
 def build_tree(exp):
@@ -113,8 +114,10 @@ def xor(self, a, b):
 
 def evaluate(atree):
     operators = {"+": add, "-": sub, "*": mul, "/": div, "//": floordiv, "%": mod, "^": xor}
+
     meleft = atree.get_left()
     meright = atree.get_right()
+
     if meleft and meright:
         fn = operators[atree.get_data()]
         return fn(evaluate(meleft), evaluate(meright))

@@ -40,38 +40,38 @@ class Node:
         return self.data
 
     # Human readable version of __str__ method
-    # def __str__(self):
-    #     indent = self.__indent__ + 4
-    #     if self.left == None:
-    #         left_string = "[]"
-    #     else:
-    #         self.left.__indent__ = indent
-    #         left_string = str(self.left)
-    #         self.left.__indent__ = 0
-
-    #     if self.right == None:
-    #         right_string = "[]"
-    #     else:
-    #         self.right.__indent__ = indent
-    #         right_string = str(self.right)
-    #         self.right.__indent__ = 0
-
-    #     return "[{},\n{}{},\n{}{}]".format(self.data,
-    #                                        " " * indent, left_string,
-    #                                        " " * indent, right_string)
-
     def __str__(self):
+        indent = self.__indent__ + 4
         if self.left == None:
             left_string = "[]"
         else:
+            self.left.__indent__ = indent
             left_string = str(self.left)
+            self.left.__indent__ = 0
 
         if self.right == None:
             right_string = "[]"
         else:
+            self.right.__indent__ = indent
             right_string = str(self.right)
+            self.right.__indent__ = 0
 
-        return "[{}, {}, {}]".format(self.data, left_string, right_string)
+        return "[{},\n{}{},\n{}{}]".format(self.data,
+                                           " " * indent, left_string,
+                                           " " * indent, right_string)
+
+    # def __str__(self):
+    #     if self.left == None:
+    #         left_string = "[]"
+    #     else:
+    #         left_string = str(self.left)
+
+    #     if self.right == None:
+    #         right_string = "[]"
+    #     else:
+    #         right_string = str(self.right)
+
+    #     return "[{}, {}, {}]".format(self.data, left_string, right_string)
 
 def main():
     root = Node("a")
