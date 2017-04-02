@@ -59,7 +59,6 @@ class Node:
                                            " " * indent, left_string,
                                            " " * indent, right_string)
 
-
 def main():
     root = Node("a")
     root.insert_left("b")
