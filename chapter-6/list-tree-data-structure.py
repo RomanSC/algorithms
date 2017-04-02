@@ -1,14 +1,9 @@
 """ list-tree-data-structure.py | Sat, Apr 01, 2017 | Roman S. Collins
-"""
-# binTree = ["a",
-#             [ "b",
-#                 ["d", [], []],
-#                 ["e", [], []]],
-#             ["c",
-#                 ["f", [], []],
-#                 []]
-#           ]
 
+    An implementation of a tree data structure utilizing Python lists
+    as nodes.
+
+"""
 def node(data):
     return [data, [], []]
 
