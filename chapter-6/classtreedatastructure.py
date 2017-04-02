@@ -39,25 +39,37 @@ class Node:
     def get_data(self):
         return self.data
 
+    # def __str__(self):
+    #     indent = self.__indent__ + 4
+    #     if self.left == None:
+    #         left_string = "[]"
+    #     else:
+    #         self.left.__indent__ = indent
+    #         left_string = str(self.left)
+    #         self.left.__indent__ = 0
+
+    #     if self.right == None:
+    #         right_string = "[]"
+    #     else:
+    #         self.right.__indent__ = indent
+    #         right_string = str(self.right)
+    #         self.right.__indent__ = 0
+
+    #     return "[{},\n{}{},\n{}{}]".format(self.data,
+    #                                        " " * indent, left_string,
+    #                                        " " * indent, right_string)
     def __str__(self):
-        indent = self.__indent__ + 4
         if self.left == None:
             left_string = "[]"
         else:
-            self.left.__indent__ = indent
             left_string = str(self.left)
-            self.left.__indent__ = 0
 
         if self.right == None:
             right_string = "[]"
         else:
-            self.right.__indent__ = indent
             right_string = str(self.right)
-            self.right.__indent__ = 0
 
-        return "[{},\n{}{},\n{}{}]".format(self.data,
-                                           " " * indent, left_string,
-                                           " " * indent, right_string)
+        return "[{}, {}, {}]".format(self.data, left_string, right_string)
 
 def main():
     root = Node("a")
