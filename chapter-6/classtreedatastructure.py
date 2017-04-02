@@ -39,6 +39,7 @@ class Node:
     def get_data(self):
         return self.data
 
+    # Human readable version of __str__ method
     # def __str__(self):
     #     indent = self.__indent__ + 4
     #     if self.left == None:
@@ -58,6 +59,7 @@ class Node:
     #     return "[{},\n{}{},\n{}{}]".format(self.data,
     #                                        " " * indent, left_string,
     #                                        " " * indent, right_string)
+
     def __str__(self):
         if self.left == None:
             left_string = "[]"
