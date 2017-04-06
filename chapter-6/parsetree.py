@@ -127,13 +127,16 @@ def evaluate(atree):
 def main():
     pass
     parsestring = "(2 + 3 * 7 + 3 * 5 * (3 + 6 * (4 + 5)))"
-    # proof = 2 + 3 * 7 + 3 * 5 * (3 + 6 * (4 + 5))
-    #parsestring = "((10 + 5) * 3)"
+    proof = 2 + 3 * 7 + 3 * 5 * (3 + 6 * (4 + 5))
+
+    parsestring = "((2+3) * (7 + 3)))"
 
     mytree = build_tree(parsestring)
     print(mytree)
 
-    evaluate(mytree)
+    # myeval = evaluate(mytree)
+    # print(myeval)
+    # print(proof)
 
 if __name__ == "__main__":
     main()
