@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 """ parse-tree.py | Sun, Apr 02, 2017 | Roman S. Collins
 
     An example of a parse tree implementation in Python.
