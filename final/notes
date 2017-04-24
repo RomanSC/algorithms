@@ -1,0 +1,102 @@
+def djikstra(graph, a, b):
+
+    # for k, v in graph.items():
+    #     # print("KEY:", k)
+    #     print("VAL:", v)
+    #     if isinstance(v, dict):
+    #         for k, x in v.items():
+    #             pass
+    #             # print("KEY", k)
+    #             # print("VAL", x)
+
+    # Empty priority queue, to
+    # schedule for visiting
+    queue = deque()
+    visited = deque()
+    # print(queue)
+
+    # for key, val in graph.items():
+    #     if isinstance(val, dict):
+    #         for k, x in val.items():
+    #             if x > 0:
+    #                 print(x)
+
+    # Get the first children to search
+    # then add them to the priority
+    # queue
+
+    shortest = inf
+    for key, val in graph.items():
+        if key == a and isinstance(val, dict):
+            # For this part in the computerphile video
+            # the man puts vertices in the visit queue
+            # in order, so I had to hack a way to do that
+            # but that introduces extra steps into my algorithm.
+            # So I don't know what the way to do that in the
+            # least amount of steps would be, clearly this is
+            # not it, this also ruins any speed efficiency
+            # gains from using adjaceny matrix made from a
+            # dictionary of dictionaries
+            # https://stackoverflow.com/questions/613183/sort-a-python-dictionary-by-value
+            visited.append(a)
+            for x in sorted(val.items(), key=lambda x: x[1]):
+                # print(x)
+                for j in range(len(x)):
+                    #print(x[j])
+                    if isinstance(x[j], int) or isinstance(x[j], float):
+                        if x[j] > 0:
+                            # print(x[j])
+                            queue.append(x[j-1])
+            print("Visited:", visited)
+            print("Priority:", queue)
+            # for k, x in val.items():
+            #     pass
+                # if x > 0:
+                #     print(k, x)
+                #     # queue.append(k)
+                #     if x < shortest:
+                #         queue.appendleft(k)
+                #         shortest = x
+                #     else:
+                #         queue.append(k)
+                #     print(queue)
+
+    # graph = {
+    #         "S": {"d": 10, "c": {"A": 7, "B": 2, "C": 3}},
+    #         "A": {"d": 9, "c": {"S": 7, "B": 3, "D": 4}},
+    #         "B": {"d": 7, "c": {"S": 2, "A": 3, "D": 4, "H": 1}},
+    #         "C": {"d": 8, "c": {"S": 3, "L": 2}},
+    #         "D": {"d": 8, "c": {"A": 4, "B": 4, "F": 5}},
+    #         "H": {"d": 6, "c": {"B": 1, "F": 3, "G": 2}},
+    #         "L": {"d": 6, "c": {"C": 2, "I": 4, "J": 4}},
+    #         "F": {"d": 6, "c": {"D": 5, "H": 3}},
+    #         "G": {"d": 3, "c": {"H": 2, "E": 2}},
+    #         "I": {"d": 4, "c": {"L": 4, "J": 6, "K": 4}},
+    #         "J": {"d": 4, "c": {"L": 4, "I": 6, "K": 4}},
+    #         "E": {"d": 0, "c": {"G": 2, "K": 5}},
+    #         "K": {"d": 3, "c": {"I": 4, "J": 4, "E": 5}}
+    #         }
+
+    # Instead of using inches like in the computerphile
+    # for the distance, we can say that the distance
+    # is the number of edges between the current
+    # vertice and end node, that way it can be derivative
+    # of a matrix so the distance can be determined at run
+    # time.
+
+    graph = {
+            "S": {"d": 10, "c": {"A": 7, "B": 2, "C": 3}},
+            "A": {"d": 9, "c": {"S": 7, "B": 3, "D": 4}},
+            "B": {"d": 7, "c": {"S": 2, "A": 3, "D": 4, "H": 1}},
+            "C": {"d": 8, "c": {"S": 3, "L": 2}},
+            "D": {"d": 8, "c": {"A": 4, "B": 4, "F": 5}},
+            "H": {"d": 6, "c": {"B": 1, "F": 3, "G": 2}},
+            "L": {"d": 6, "c": {"C": 2, "I": 4, "J": 4}},
+            "F": {"d": 6, "c": {"D": 5, "H": 3}},
+            "G": {"d": 3, "c": {"H": 2, "E": 2}},
+            "I": {"d": 4, "c": {"L": 4, "J": 6, "K": 4}},
+            "J": {"d": 4, "c": {"L": 4, "I": 6, "K": 4}},
+            "E": {"d": 0, "c": {"G": 2, "K": 5}},
+            "K": {"d": 3, "c": {"I": 4, "J": 4, "E": 5}}
+            }
+
