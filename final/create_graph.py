@@ -13,16 +13,13 @@
     graph[x][y]
 
 """
-from math import inf
 from random import choice
 
 class GridGraph:
     def __init__(self, start, goal, width=5,
                  height=5, start_sym="@", goal_sym="*",
                  rand_obst=False, obst_sym=str(chr(0x2588)),
-                 specified=False):
-        # start_sym="@", goal_sym=" * ", rand_obst=False, \
-        # obst_sym=chr(0x2588), specified=False):
+                 specified=False, space_sym="_"):
 
         self.width = width
         self.height = height
@@ -35,43 +32,23 @@ class GridGraph:
         self.graph = {}
 
         for x in range(width):
-            # self.graph[x] = x
-            # tempd = {}
             self.graph[x] = {}
             for y in range(height):
-                # tempd[y] = inf
-                self.graph[x][y] = inf
+                self.graph[x][y] = space_sym
 
         if specified:
             for i in range(len(specified)):
-                # print(self.obst_num)
-                # self.graph[specified[i][0]][specified[i][1]] = \
-                # str(obst_sym) * self.zero_div(3, self.obst_num)
-                # self.obst_num += 1
-                # print(self.graph[specified[i][0]][specified[i][1]])
                 if specified[i] != start and specified[i] != goal \
                 and specified[i][1] <= width and specified[i][0] <= height:
-                    # self.graph[specified[i][1]][specified[i][0]] = \
-                    # "{}".format(obst_sym * self.obst_str_len(3, self.obst_num))
                     self.graph[specified[i][1]][specified[i][0]] = self.obst_sym
 
-        """ Disclaimer:
-
-            Not 'truely random', because there's a floor. Should be close
-            enough to test while giving a good amount of obstacles within
-            a range. Range could be a range greater than -1 and less than
-            graph the boundary.
-
-            Testing astar one might question how efficiently A* finds the
-            path for a given percentage of 'randomly' chosen obstacles in a
-            set of generated graphs.
+        """
+            Random only within a range, which is min and max amount
+            of obstacles.
         """
         if rand_obst:
             min_obst = self.width * self.height // 3 # At least 1/3 should be obstacles
             max_obst = self.width * self.height - max(self.width, self.height)
-            # max_wh = max(self.width, self.height)
-            # print(min_obst)
-            # print(max_wh)
 
             def get_tot(self):
                 self.tot_obst = choice([i for i in range(min_obst, max_obst)])
@@ -85,27 +62,19 @@ class GridGraph:
                 than the total area of the graph.
 
                 Source:
-                Physics Classroom - Determining the Area on a v-t Graph:
-                http://www.physicsclassroom.com/class/1DKin/Lesson-4/Determining-the-Area-on-a-v-t-Graph
+                - Physics Classroom - Determining the Area on a v-t Graph:
+                     http://www.physicsclassroom.com/class/1DKin/Lesson-4/Determining-the-Area-on-a-v-t-Graph
             """
             area = self.width * self.height
             get_tot(self)
             if self.tot_obst <= area:
                 get_tot(self)
 
-            # print(self.tot_obst)
             for x in range(self.tot_obst):
                 obst = (choice([x for x in range(0, width)]),
                         choice([y for y in range(0, height)]))
-                # print(obst)
-                # self.graph[obst[1]][obst[0]] = \
-                # "{}".format(obst_sym * self.obst_str_len(3, self.obst_num))
                 self.graph[obst[1]][obst[0]] = self.obst_sym
 
-        # self.graph[start[1]][start[0]] = \
-        # "{}".format(start_sym * self.obst_str_len(3, self.obst_num))
-        # self.graph[goal[1]-1][goal[0]-1] = \
-        # "{}".format(goal_sym * self.obst_str_len(3, self.obst_num))
         self.graph[goal[1]-1][goal[0]-1] = self.goal_sym
         self.graph[start[1]][start[0]] = self.start_sym
 
@@ -149,14 +118,9 @@ class GridGraph:
     """
         For calculating width of obstacles
         more easily (without ZeroDivision
-        errors):
+        errors) for nice printout:
     """
     def obst_str_len(self, a, b, f=True):
-        # if a or b == 0:
-        #     return 1
-        # else:
-        #     return a / b
-        # print(len("\"\""))
         if a == 0:
             return 0
         elif b == 0:
@@ -180,18 +144,13 @@ def main():
 
     for o in obstacles:
         print(o, end=" ")
-
     print("\n")
 
-    # mygraph = GridGraph(start, goal, width, height, rand_obst=True)
     mygraph = GridGraph(start, goal, width, height, specified=obstacles)
     print(mygraph)
 
     for o in obstacles:
-        # print(mygraph[o[0]][o[1]])
-        # print(o)
         print(mygraph[(o[0], o[1])], end=" ")
-
     print("\n")
 
 if __name__ == "__main__":

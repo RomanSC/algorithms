@@ -26,7 +26,6 @@
     order of the path returned from counting backwards from the current to the
     starting vertex.
 
-
     Summary of my implementation:
 
         I mostly followed the along to a video of Sebastian Lague writing the
@@ -59,7 +58,7 @@
     direction I simply subtracted one unit vector from another, and subracted
     the sum of that expression from the F score. Much to my surprise it worked!
 
-    Weaknesses to A* and notation:
+    Weaknesses to A*:
 
         The Computerphile video I watched used a graph, which was not a grid.
     In the case of using A* to solve a grid, it won't be the most efficient
@@ -70,9 +69,9 @@
     inputting a grid to A* that contains lots of obstacles. If this is true, it
     is likely also true that A* is also most efficient in the case that the
     graph has many connected nodes particularly in the center. With the right
-    heuristic, A* can find diagonal routes from a point a to a point b very
-    efficiently. There are also issues with A* picking non-optimal routes,
-    but I fixed that.
+    heuristic, A* can find diagonal routes from a point a to point b very
+    efficiently if the route is open. There are also issues with A* picking
+    non-optimal routes, but I fixed that.
 
     Sources:
 
@@ -131,14 +130,7 @@ def astar(graph, start, goal,
 
     boundary = (graph.width, graph.height)
 
-    # if -1 < goal[0] > 0:
-    #     origgoal = goal
-    #     goal = (goal[0]-1, goal[1])
-    # if -1 < goal[1] > 0:
-    #     origgoal = goal
-    #     goal = (goal[0], goal[1]-1)
-
-    print("Searching for {}...".format(goal))
+    # print("Searching for {}...".format(goal))
 
     openset = [] # Binary tree for efficiently ordering of next vertexes
     # Hash table for checking, is __ in openset? efficiently.
@@ -161,7 +153,7 @@ def astar(graph, start, goal,
         inopenset.pop(current)
 
         if current == (goal[0]-1, goal[1]-1):
-            print("\nFOUND:", current)
+            # print("\nFOUND:", current)
             # # return list(reconstruct_path(current, camefrom, start))
             # path = list(reconstruct_path(current, camefrom, start))
             # # path.append(current)
@@ -178,21 +170,22 @@ def astar(graph, start, goal,
             if neighbor in closedset or obst_sym == graph[neighbor]:
                 continue
 
+            if goal_sym == graph[neighbor]: # Skip calculating if found
+                camefrom[neighbor] = current
+                heappush(openset, (0, neighbor))
+                inopenset[neighbor] = True
+                continue
+
             if neighbor not in camefrom:
                 camefrom[neighbor] = current
 
-            # if neighbor == goal:
-            #     camefrom[neighbor] = current
-            #     heappush(openset, (0, neighbor))
-            #     inopenset[neighbor] = True
-            #     continue
-
-            if neighbor not in g_cost:
-                temp_g = euclidian_heuristic(neighbor, start)
+            temp_g = euclidian_heuristic(neighbor, start)
+            if neighbor not in g_cost or temp_g < g_cost[neighbor]:
                 g_cost[neighbor] = temp_g
 
-            if neighbor not in h_cost:
-                temp_h = euclidian_heuristic(neighbor, (goal[0]-1, goal[1]-1))
+            temp_h = euclidian_heuristic(neighbor, (goal[0]-1, goal[1]-1))
+            if neighbor not in h_cost or temp_h < h_cost[neighbor]:
+                # h_cost[neighbor] = temp_h # without taking into account direction
                 h_cost[neighbor] = temp_h - directional_heuristic(current, neighbor, goal)
 
             f_cost[neighbor] = g_cost[neighbor] + h_cost[neighbor]
@@ -202,18 +195,18 @@ def astar(graph, start, goal,
 
         closedset[current] = None
 
-        print("\nCurrent: {}".format(current))
-        try:
-            print("Camefrom: {}".format(camefrom[current]))
-        except KeyError:
-            pass
-        print("Camefrom: {}".format(camefrom))
-        print("\nNeighbors: {}".format(get_neighbors(current, boundary)))
-        print("\nOpenset: {}".format(openset))
-        print("Closedset: {}".format(closedset))
-        print("\nG cost: {}".format(g_cost))
-        print("H cost: {}".format(h_cost))
-        print("F cost: {}".format(f_cost))
+        # print("\nCurrent: {}".format(current))
+        # try:
+        #     print("Camefrom: {}".format(camefrom[current]))
+        # except KeyError:
+        #     pass
+        # print("Camefrom: {}".format(camefrom))
+        # print("\nNeighbors: {}".format(get_neighbors(current, boundary)))
+        # print("\nOpenset: {}".format(openset))
+        # print("Closedset: {}".format(closedset))
+        # print("\nG cost: {}".format(g_cost))
+        # print("H cost: {}".format(h_cost))
+        # print("F cost: {}".format(f_cost))
 
 """
     Using Euclidean distance:
@@ -246,7 +239,7 @@ def directional_heuristic(current, neighbor, goal):
     ndx = neighbor[0] - goal[0]
     ndy = neighbor[1] - goal[1]
     h = sqrt(cdx ** 2 + cdy ** 2) - sqrt(ndx ** 2 + ndy ** 2)
-    print(h)
+    # print(h)
     return h
 
 def get_neighbors(vertex, boundary):
@@ -259,15 +252,15 @@ def get_neighbors(vertex, boundary):
                               (-1 < xe <= boundary[0]-1) and
                               (-1 < ye <= boundary[1]-1))]
 
-    print("\nFinding neighbors...")
-    print("Vertex:", vertex)
-    print("Boundary:", boundary)
-    print("Done: {}".format(neighbors))
+    # print("\nFinding neighbors...")
+    # print("Vertex:", vertex)
+    # print("Boundary:", boundary)
+    # print("Done: {}".format(neighbors))
 
     return neighbors
 
 def reconstruct_path(start, goal, camefrom):
-    print("\n", camefrom)
+    # print("\n", camefrom)
     path = [(goal[0]-1, goal[1]-1)]
 
     for vert in path:
@@ -295,24 +288,24 @@ def main():
                (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6), goal]
 
     graph = GridGraph(start, goal, width, height, specified=obstacles)
-    print(graph)
+    # print(graph)
 
-    print("\nTests:\n")
-    print("\nStart: {}".format(graph[start]))
-    print("Goal: {}".format(graph[(goal[0]-1, goal[1]-1)]))
+    # print("\nTests:\n")
+    # print("\nStart: {}".format(graph[start]))
+    # print("Goal: {}".format(graph[(goal[0]-1, goal[1]-1)]))
 
     # Approximate
     ihtest = euclidian_heuristic(start, goal)
     # Returns float, so hypothetically more accurate when comparing vertexes
     fhtest = euclidian_heuristic(start, goal)
-    print("\nEuclidean euclidian_heuristic check: {} or {}", ihtest, fhtest)
+    # print("\nEuclidean euclidian_heuristic check: {} or {}", ihtest, fhtest)
 
     gntest = get_neighbors((4, 4), (8, 8))
-    print("\nGet neighbors function check: {}".format(gntest))
+    # print("\nGet neighbors function check: {}".format(gntest))
 
     # Implementation
     path, camefrom = astar(graph, start, goal)
-    print("\nPath: {}".format(path))
+    # print("\nPath: {}".format(path))
 
     print("\n")
     slides = visual_slides(path, start, goal, width, height, obstacles)
