@@ -1,43 +1,46 @@
+#!/usr/bin/python3
 """ create_graph.py | Sun, May 07, 2017 | Roman S. Collins
 
-    A better graph creation function. A link to
-    the old crappiness:
+    A better graph creation function. A link to the old crappiness:
     https://pastebin.com/CEM82Pst
 
-    This is better than last because now I can make
-    any coordinate a list containing f_scores, g_scores,
-    etc.. Also probably more convenient than setting
-    up a graph using nodes/vertices represented by a
-    class. (Maybe)
+    This is better than last because now I can make any coordinate a list
+    containing f_scores, g_scores, etc.. Also probably more convenient than
+    setting up a graph using nodes/vertices represented by a class. (Maybe)
+    And more efficient than using a list of lists.
+
+    Also because, I prefer refering to x and y with:
+    graph[x][y]
 
 """
 from math import inf
 from random import choice
 
-# TODO:
-# - Obstacles from list
-# - Random obstacles
-class Create:
+class GridGraph:
     def __init__(self, start, goal, width=5,
                  height=5, start_sym="@", goal_sym="*",
-                 rand_obst=False, obst_sym=chr(0x2588),
+                 rand_obst=False, obst_sym=str(chr(0x2588)),
                  specified=False):
-        # start_sym=" @ ", goal_sym=" * ", rand_obst=False, \
+        # start_sym="@", goal_sym=" * ", rand_obst=False, \
         # obst_sym=chr(0x2588), specified=False):
 
         self.width = width
         self.height = height
         self.tot_obst = 0
         self.obst_num = 0
+        self.start_sym = start_sym
+        self.goal_sym = goal_sym
+        self.obst_sym = obst_sym
 
         self.graph = {}
 
         for x in range(width):
             # self.graph[x] = x
-            tempd = {}
+            # tempd = {}
+            self.graph[x] = {}
             for y in range(height):
-                tempd[y] = inf
-                self.graph[x] = tempd
+                # tempd[y] = inf
+                self.graph[x][y] = inf
 
         if specified:
             for i in range(len(specified)):
@@ -46,27 +49,33 @@ class Create:
                 # str(obst_sym) * self.zero_div(3, self.obst_num)
                 # self.obst_num += 1
                 # print(self.graph[specified[i][0]][specified[i][1]])
-                if specified[i] != start and specified[i] != goal:
-                    self.graph[specified[i][0]][specified[i][1]] = \
-                    "{}".format(obst_sym * self.obst_str_len(3, self.obst_num))
+                if specified[i] != start and specified[i] != goal \
+                and specified[i][1] <= width and specified[i][0] <= height:
+                    # self.graph[specified[i][1]][specified[i][0]] = \
+                    # "{}".format(obst_sym * self.obst_str_len(3, self.obst_num))
+                    self.graph[specified[i][1]][specified[i][0]] = self.obst_sym
 
-        """
-            Not truely random, I know...
+        """ Disclaimer:
 
-            Because there is a floor to the amount
-            of obstacles. But true randomness does
-            not exist in CS. So.
+            Not 'truely random', because there's a floor. Should be close
+            enough to test while giving a good amount of obstacles within
+            a range. Range could be a range greater than -1 and less than
+            graph the boundary.
 
+            Testing astar one might question how efficiently A* finds the
+            path for a given percentage of 'randomly' chosen obstacles in a
+            set of generated graphs.
         """
         if rand_obst:
-            floor = self.width * self.height // 2 # At least 1/2 should be obstacles
-            print(floor)
-            print(max(self.width, self.height))
+            min_obst = self.width * self.height // 3 # At least 1/3 should be obstacles
+            max_obst = self.width * self.height - max(self.width, self.height)
+            # max_wh = max(self.width, self.height)
+            # print(min_obst)
+            # print(max_wh)
 
             def get_tot(self):
-                self.tot_obst = choice([i for i in range(floor,
-                                                        max(self.width,
-                                                            self.height))])
+                self.tot_obst = choice([i for i in range(min_obst, max_obst)])
+
             # Probably not most efficient O(n * 1)
             # where n greater than total area of graph
             # If all are greater than O(n ** 2) but...
@@ -84,23 +93,26 @@ class Create:
             if self.tot_obst <= area:
                 get_tot(self)
 
-            print(self.tot_obst)
+            # print(self.tot_obst)
             for x in range(self.tot_obst):
-                obst = (choice([i for i in range(0, width)]),
-                        choice([i for i in range(0, height)]))
-                print(obst)
-                self.graph[obst[0]][obst[1]] = \
-                "{}".format(obst_sym * self.obst_str_len(3, self.obst_num))
+                obst = (choice([x for x in range(0, width)]),
+                        choice([y for y in range(0, height)]))
+                # print(obst)
+                # self.graph[obst[1]][obst[0]] = \
+                # "{}".format(obst_sym * self.obst_str_len(3, self.obst_num))
+                self.graph[obst[1]][obst[0]] = self.obst_sym
 
-        self.graph[start[0]][start[1]] = \
-        "{}".format(start_sym * self.obst_str_len(3, self.obst_num))
-        self.graph[goal[0]-1][goal[1]-1] = \
-        "{}".format(goal_sym * self.obst_str_len(3, self.obst_num))
+        # self.graph[start[1]][start[0]] = \
+        # "{}".format(start_sym * self.obst_str_len(3, self.obst_num))
+        # self.graph[goal[1]-1][goal[0]-1] = \
+        # "{}".format(goal_sym * self.obst_str_len(3, self.obst_num))
+        self.graph[goal[1]-1][goal[0]-1] = self.goal_sym
+        self.graph[start[1]][start[0]] = self.start_sym
 
     def __str__(self):
         ret_str = ""
         for x in range(self.width):
-            ret_str += str(x) + " " + str(self.graph[x]) + "\n"
+            ret_str += "X: " + str(self.graph[x]) + " Y: " + str(x) + "\n"
 
         return ret_str
 
@@ -125,22 +137,35 @@ class Create:
           https://pastebin.com/sc65kegt
 
     """
-    def __getitem__(self, key):
-        return self.graph[key]
+    def __getitem__(self, tup):
+        if not isinstance(tup, tuple):
+            print("Indexing must be done using a tuple for (x, y) coordinates.")
+        else:
+            return self.graph[tup[1]][tup[0]]
 
-    def __setitem__(self, key, val):
-        self.graph[key] = val
+    def __setitem__(self, tup, val):
+        self.graph[tup[1]][tup[0]] = val
 
     """
         For calculating width of obstacles
         more easily (without ZeroDivision
         errors):
     """
-    def obst_str_len(self, a, b):
-        if a or b == 0:
-            return 1
+    def obst_str_len(self, a, b, f=True):
+        # if a or b == 0:
+        #     return 1
+        # else:
+        #     return a / b
+        # print(len("\"\""))
+        if a == 0:
+            return 0
+        elif b == 0:
+            return a - len("\"\"")
         else:
-            return a / b
+            if f:
+                return a // b - len("\"\"")
+            elif not f:
+                return a / b - len("\"\"")
 
 def main():
     width = 8
@@ -149,12 +174,25 @@ def main():
     start = (0, 0)
     goal = (8, 8)
 
-    obstacles = [(0, 0), (1, 1), (1, 2), (1, 2),
-                 (2, 0), (2, 1), (2, 3), (2, 4)]
+    obstacles = [(0, 3), (1, 3), (2, 3),
+                 (3, 3), (4, 3), (5, 3),
+                 (6, 3), (7, 3)]
 
-    mygraph = Create(start, goal, width, height, rand_obst=True)
+    for o in obstacles:
+        print(o, end=" ")
+
+    print("\n")
+
+    # mygraph = GridGraph(start, goal, width, height, rand_obst=True)
+    mygraph = GridGraph(start, goal, width, height, specified=obstacles)
     print(mygraph)
-    print(mygraph[0][1])
+
+    for o in obstacles:
+        # print(mygraph[o[0]][o[1]])
+        # print(o)
+        print(mygraph[(o[0], o[1])], end=" ")
+
+    print("\n")
 
 if __name__ == "__main__":
     main()
