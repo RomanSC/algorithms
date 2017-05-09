@@ -133,10 +133,7 @@ def astar(graph, start, goal,
     # print("Searching for {}...".format(goal))
 
     openset = [] # Binary tree for efficiently ordering of next vertexes
-    # Hash table for checking, is __ in openset? efficiently.
-    inopenset = {}
     heappush(openset, (0, start))
-    inopenset[start] = True
     closedset = {}
 
     camefrom = {}
@@ -150,7 +147,6 @@ def astar(graph, start, goal,
 
     while openset:
         current = heappop(openset)[1]
-        inopenset.pop(current)
 
         if current == (goal[0]-1, goal[1]-1):
             # print("\nFOUND:", current)
@@ -173,7 +169,6 @@ def astar(graph, start, goal,
             if goal_sym == graph[neighbor]: # Skip calculating if found
                 camefrom[neighbor] = current
                 heappush(openset, (0, neighbor))
-                inopenset[neighbor] = True
                 continue
 
             if neighbor not in camefrom:
@@ -187,11 +182,10 @@ def astar(graph, start, goal,
             if neighbor not in h_cost or temp_h < h_cost[neighbor]:
                 # h_cost[neighbor] = temp_h # without taking into account direction
                 h_cost[neighbor] = temp_h - directional_heuristic(current, neighbor, goal)
+                # h_cost[neighbor] = temp_h # without taking into account direction
 
             f_cost[neighbor] = g_cost[neighbor] + h_cost[neighbor]
-            if neighbor not in inopenset:
-                heappush(openset, (f_cost[neighbor], neighbor))
-                inopenset[neighbor] = True
+            heappush(openset, (f_cost[neighbor], neighbor))
 
         closedset[current] = None
 
